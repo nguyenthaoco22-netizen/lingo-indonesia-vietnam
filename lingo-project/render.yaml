@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: lingo-indonesia-vietnam
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: AI_PROVIDER
+        value: openai
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: gpt-4.1-mini
+      - key: AI_BASE_URL
+        value: https://api.openai.com/v1
